@@ -1,0 +1,134 @@
+body {
+    background-color: #CEDCDF;
+    margin: 0px;
+}
+
+.log {
+    font-family: 'Martel';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 27px;
+    color: rgba(0, 0, 0, 0.76);
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+header-rect {
+    width: inherit;
+    height: 33px;
+
+    background: #ABD3DC;
+
+    font-family: 'Martel';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+    color: rgba(3, 31, 57, 0.6);
+
+}
+
+.dvc-text-input {
+
+    background: rgba(255, 255, 255, 0.47);
+    border: 1px solid rgba(0, 0, 0, 0.43);
+
+    font-family: 'Martel';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+
+    color: rgba(0, 0, 0, 0.76);
+}
+
+.btn {
+
+    display: inline-block;
+
+    padding: 0 25px;
+
+    margin: 0 15px 15px 0;
+
+    outline: none;
+
+    height: 28px;
+
+    line-height: 28px;
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    text-decoration: none;
+
+    color: #444;
+
+    background-color: #fff;
+
+    box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+
+    cursor: pointer;
+
+    user-select: none;
+
+    appearance: none;
+
+    touch-action: manipulation;
+
+    vertical-align: top;
+
+    transition: box-shadow 0.2s;
+
+    background: #92B3BA;
+    border: 1px solid #D6D5D5;
+    border-radius: 5px;
+    width: 141px;
+
+}
+
+.btn:focus-visible {
+
+    border: 1px solid #4c51f9;
+
+    outline: none;
+
+}
+
+.btn:hover {
+
+    transition: all 0.2s;
+
+    box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+
+}
+
+.btn:active {
+
+    background-color: #808080;
+
+}
+
+.btn:disabled {
+
+    background-color: #eee;
+
+    border-color: #eee;
+
+    color: #444;
+
+    cursor: not-allowed;
+
+}

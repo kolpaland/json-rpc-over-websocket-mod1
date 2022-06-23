@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <body>
-    <h1>JSON-RPC over Websocket demo</h1>
-    <input id="url" type="text" placeholder="Type URL" value="ws://localhost:8000/websocket" style="width:20em;" /> 
-    <button id="connect">connect</button>
-    <div style="height: 0.3em;">&nbsp;</div>
-    <button id="btn1">Calculate 1 + 2</button>
-    <button id="btn2">Calculate 2 * 3</button>
-    <div style="margin-top: 1em;">Event log:</div>
-    <div id="log" style="background: #eee; height: 10em; padding: 0.5em; overflow:auto;"><div>
-  </body>
-  <script src="rpc-over-websocket.js"></script>
-  <script>
-    var rpc, E = function(id) { return document.getElementById(id); };
-    var url = E('url'), connect = E('connect'), btn1 = E('btn1'), btn2 = E('btn2'), msglog = E('log');
-    var enable = function(en) { btn1.disabled = btn2.disabled = !en; url.disabled = en; connect.innerHTML = en ? 'disconnect' : 'connect'; };
-    var log = text => msglog.innerHTML += text + '<br/>\n';
-    enable(false);
-    connect.onclick = function() {
-      console.log(rpc);
-      if (rpc) { rpc.close(); rpc = null; return; }
-      rpc = jsonrpc(url.value,
-            () => enable(true),
-            () => enable(false),
-            msg => log('NOTIFICATION: ' + JSON.stringify(msg)));
-    };
-    btn1.onclick = ev => rpc.call('sum', [1, 2]).then(res => log('SUM:' + JSON.stringify(res)));
-    btn2.onclick = ev => rpc.call('mul', [2, 3]).then(res => log('MUL:' + JSON.stringify(res)));
-  </script>
+
+<head>
+  <meta charset="utf-8">
+  <title>Панель управления</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<body>
+
+  <header-rect>Панель управления</header-rect>
+  <div style="height: 5em;">&nbsp;</div>
+  <input id="url" type="text" class="dvc-text-input" placeholder="Type URL" value="ws://localhost:8000/websocket"
+    style="width:20em;" />
+  <button id="connect" class="btn" style="position:absolute; left:340px; top:115px;">Подключиться</button>
+  <div style="height: 0.3em;">&nbsp;</div>
+  <input id="param1" type="number" class="dvc-text-input" placeholder="Введите параметр X" value="1.0"
+    style="width:20em;" />
+
+  <button id="btn1" class="btn" style="position:absolute; left:340px; top:150px;">Отправить</button>
+  <div style="height: 0.3em;">&nbsp;</div>
+  <input id="param2" type="number" class="dvc-text-input" placeholder="Введите параметр Y" value="2.0"
+    style="width:20em;" />
+
+  <button id="btn2" class="btn" style="position:absolute; left:340px; top:186px;">Отправить</button>
+  <div class="log" style="margin-top: 1em; margin-left: 1em;">Сообщения:</div>
+  <div id="log" class="log"
+    style="background: #FEFEFE; margin-left: 1em; box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); width: 30em; height: 30em; padding: 0.5em; overflow:auto;">
+    <div>
+</body>
+<script src="rpc-over-websocket.js"></script>
+<script>
+  var rpc, E = function (id) { return document.getElementById(id); };
+  var url = E('url'), connect = E('connect'), btn1 = E('btn1'), btn2 = E('btn2'), msglog = E('log');
+  var enable = function (en) { btn1.disabled = btn2.disabled = !en; url.disabled = en; connect.innerHTML = en ? 'Отключиться' : 'Подключиться'; };
+  var log = text => msglog.innerHTML += text + '<br/>\n';
+  enable(false);
+  connect.onclick = function () {
+    console.log(rpc);
+    if (rpc) { rpc.close(); rpc = null; return; }
+    rpc = jsonrpc(url.value,
+      () => enable(true),
+      () => enable(false),
+      msg => log('NOTIFICATION: ' + JSON.stringify(msg)));
+  };
+  btn1.onclick = ev => rpc.call('sum', [1, 2]).then(res => log('SUM:' + JSON.stringify(res)));
+  btn2.onclick = ev => rpc.call('mul', [2, 3]).then(res => log('MUL:' + JSON.stringify(res)));
+</script>
+
 </html>
