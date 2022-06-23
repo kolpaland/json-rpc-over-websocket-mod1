@@ -55,48 +55,28 @@ header-rect {
 }
 
 .btn {
-
     display: inline-block;
-
     padding: 0 25px;
-
     margin: 0 15px 15px 0;
-
     outline: none;
-
     height: 28px;
-
     line-height: 28px;
-
     font-size: 14px;
-
     font-weight: 300;
-
     text-decoration: none;
-
     color: #444;
-
     background-color: #fff;
-
     box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
-
     cursor: pointer;
-
     user-select: none;
-
     appearance: none;
-
     touch-action: manipulation;
-
     vertical-align: top;
-
     transition: box-shadow 0.2s;
-
     background: #92B3BA;
     border: 1px solid #D6D5D5;
     border-radius: 5px;
     width: 141px;
-
 }
 
 .btn:focus-visible {
@@ -108,27 +88,17 @@ header-rect {
 }
 
 .btn:hover {
-
     transition: all 0.2s;
-
     box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
-
 }
 
 .btn:active {
-
     background-color: #808080;
-
 }
 
 .btn:disabled {
-
     background-color: #eee;
-
     border-color: #eee;
-
     color: #444;
-
     cursor: not-allowed;
-
 }

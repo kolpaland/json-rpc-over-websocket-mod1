@@ -30,6 +30,7 @@ var jsonrpc = function(url, onopen, onclose, onnotification) {
           reject();
         });
         pending[id] = x => resolve(x);
+        
       });
     },
   };
